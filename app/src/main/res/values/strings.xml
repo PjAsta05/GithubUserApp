@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Github User Search</string>
+
+    <string name="tab_1">Followers</string>
+    <string name="tab_2">Following</string>
+    <string name="search">search</string>
+    <string name="there_are_no_users">There Are No Users</string>
+    <string name="viewpager">viewPager</string>
+    <string name="image_avatar_desc">The image avatar of user</string>
+    <string name="favorite">Favorite</string>
+    <string name="logo_splash_screen">logo_splash_screen</string>
+    <string name="share">share</string>
+    <string name="favorite_users">Favorite Users</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="please_enter_a_username_to_search_for">Please enter a username to search for</string>
+</resources>
