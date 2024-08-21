@@ -12,8 +12,7 @@
         <dist:fusing dist:include="true" />
     </dist:module>
 
-    <application
-        android:name="com.example.githubusersearch.MyApplication">
+    <application>
         <activity android:name=".FavoriteActivity"
             android:exported="true">
             <intent-filter>
