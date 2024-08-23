@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.githubusersearch.core.data.source.remote.response.DetailUserResponse
+import com.example.githubusersearch.core.domain.model.DetailUser
 import com.example.githubusersearch.core.domain.model.Favorite
 import com.example.githubusersearch.core.domain.usecase.GithubUserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,8 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailUserViewModel @Inject constructor(private val githubUserUseCase: GithubUserUseCase) : ViewModel() {
-    private val _user = MutableLiveData<DetailUserResponse>()
-    val user: LiveData<DetailUserResponse> = _user
+    private val _user = MutableLiveData<DetailUser>()
+    val user: LiveData<DetailUser> = _user
     private val _isFavorite = MutableLiveData<Boolean>()
     val isFavorite: LiveData<Boolean> = _isFavorite
 
@@ -22,7 +22,7 @@ class DetailUserViewModel @Inject constructor(private val githubUserUseCase: Git
         viewModelScope.launch {
             githubUserUseCase.getUserDetail(username).collect { user ->
                 _user.value = user?.let {
-                    DetailUserResponse(it.login, it.id, it.avatarUrl, it.name, it.followers, it.following)
+                    DetailUser(it.login, it.id, it.avatarUrl, it.name, it.followers, it.following)
                 }
             }
         }

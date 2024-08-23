@@ -34,7 +34,7 @@ android {
     buildTypes {
         release {
             buildConfigField("String", "Base_API", "\"https://api.github.com/\"")
-            buildConfigField("String", "API_Key", "\"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\"")
+            buildConfigField("String", "API_Key", "\"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\"")
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
@@ -42,7 +42,7 @@ android {
         }
         debug {
             buildConfigField("String", "Base_API", "\"https://api.github.com/\"")
-            buildConfigField("String", "API_Key", "\"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\"")
+            buildConfigField("String", "API_Key", "\"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\"")
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
