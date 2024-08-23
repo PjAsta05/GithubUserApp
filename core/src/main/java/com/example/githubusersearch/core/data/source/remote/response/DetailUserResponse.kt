@@ -1,7 +1,9 @@
 package com.example.githubusersearch.core.data.source.remote.response
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class DetailUserResponse(
     val login: String,
     val id: Int,

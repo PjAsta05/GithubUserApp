@@ -1,5 +1,6 @@
 package com.example.githubusersearch.presentation.detail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,17 +14,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailUserViewModel @Inject constructor(private val githubUserUseCase: GithubUserUseCase) : ViewModel() {
-    private val _user = MutableLiveData<DetailUser>()
-    val user: LiveData<DetailUser> = _user
+    private val _user = MutableLiveData<DetailUser?>()
+    val user: LiveData<DetailUser?> = _user
     private val _isFavorite = MutableLiveData<Boolean>()
     val isFavorite: LiveData<Boolean> = _isFavorite
 
     fun setUserDetail(username: String) {
         viewModelScope.launch {
             githubUserUseCase.getUserDetail(username).collect { user ->
-                _user.value = user?.let {
-                    DetailUser(it.login, it.id, it.avatarUrl, it.name, it.followers, it.following)
-                }
+                Log.d("DetailUserViewModel", "setUserDetail: $user")
+                _user.value = user
             }
         }
     }

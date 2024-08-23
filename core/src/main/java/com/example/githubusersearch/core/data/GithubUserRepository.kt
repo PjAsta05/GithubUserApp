@@ -1,5 +1,6 @@
 package com.example.githubusersearch.core.data
 
+import android.util.Log
 import com.example.githubusersearch.core.data.source.local.LocalDataSource
 import com.example.githubusersearch.core.data.source.remote.RemoteDataSource
 import com.example.githubusersearch.core.domain.model.DetailUser

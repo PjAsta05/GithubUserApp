@@ -13,7 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor (private val githubUserUseCase: GithubUserUseCase) : ViewModel() {
     private val _listUsers = MutableLiveData<List<User>?>()
-    val listUser: LiveData<List<User>?> get() = _listUsers
+    val listUser: LiveData<List<User>?> = _listUsers
     private val _query = MutableLiveData<String?>()
     var query: LiveData<String?> = _query
 

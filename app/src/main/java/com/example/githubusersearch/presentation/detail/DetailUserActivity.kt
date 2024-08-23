@@ -59,27 +59,29 @@ class DetailUserActivity : AppCompatActivity() {
                 showLoading(false)
                 with(binding) {
                     Glide.with(this@DetailUserActivity)
-                        .load(it.avatarUrl)
+                        .load(it?.avatarUrl)
                         .centerCrop()
                         .into(imgAvatar)
-                    tvName.text = it.name
-                    tvUsername.text = it.login
-                    tvId.text = "ID ${it.id}"
+                    tvName.text = it?.name
+                    tvUsername.text = it?.login
+                    tvId.text = "ID ${it?.id}"
                     tvFollowers.text = SpannableStringBuilder()
-                        .bold { append("${it.followers}") }
+                        .bold { append("${it?.followers}") }
                         .append(" Followers")
                     tvFollowing.text = SpannableStringBuilder()
-                        .bold { append("${it.following}") }
+                        .bold { append("${it?.following}") }
                         .append(" Following")
                 }
                 binding.favoriteButton.visibility = View.VISIBLE
                 binding.shareButton.visibility = View.VISIBLE
 
-                favoriteUser = Favorite(
-                    it.id,
-                    it.login,
-                    it.avatarUrl
-                )
+                favoriteUser = it?.let { user ->
+                    Favorite(
+                        user.id,
+                        user.login,
+                        user.avatarUrl
+                    )
+                }
 
                 val sectionPagerAdapter = SectionPagerAdapter(this, supportFragmentManager, bundle)
                 with(binding) {

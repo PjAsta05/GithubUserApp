@@ -117,3 +117,6 @@
 -keepclassmembers class com.example.githubusersearch.core.data.source.remote.response.UserData {
     public <init>();
 }
+-keepclassmembers class com.example.githubusersearch.core.data.source.remote.response.DetailUserResponse {
+    public <init>();
+}
